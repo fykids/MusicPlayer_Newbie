@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemutar Lagu dengan Lirik</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        audio {
+            margin-top: 20px;
+        }
+        .lyrics {
+            margin-top: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        .highlight {
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pemutar Lagu dengan Lirik</h1>
+    <audio id="musicPlayer" controls>
+        <source src="melangkah.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="lyrics">
+        <h2>Lirik Lagu</h2>
+        <div id="lyrics"></div>
+    </div>
+
+    <script>
+        const lyrics = [
+            { start: 0, end: 13, text: "Intro" },
+            { start: 13, end: 21, text: "Kala rintangan masih kulawan" },
+            { start: 21, end: 28, text: "Dalam belenggu bagai menyelimuti hari" },
+            { start: 28, end: 34, text: "Dengarkan hati tak semanis mimpi" },
+            { start: 34, end: 41, text: "Harus berjuang, meski berat kulewati" },
+            { start: 41, end: 47, text: "Uuuu... Uuu..." },
+            { start: 47, end: 54, text: "Semangat datang menyelamatkanku dari" },
+            { start: 54, end: 61, text: "Kejamnya dunia yang menolakku untuk berdiri" },
+            { start: 61, end: 67, text: "Kuatkan langkahku, Tuhan, jalani hidup ini" },
+            { start: 67, end: 74, text: "Bersama doa ibuku yang selalu menemani" },
+            { start: 74, end: 82, text: "Tak pernah ku menyerah dengan keadaan" },
+            { start: 82, end: 92, text: "Karena ku terus lakukan aktivitas tanpa batas" },
+        ];
+    
+        const lyricsContainer = document.getElementById('lyrics');
+        const audioPlayer = document.getElementById('musicPlayer');
+        let currentLyricIndex = -1;
+    
+        function displayLyrics() {
+            let currentTime = audioPlayer.currentTime;
+            let found = false;
+    
+            // Cek lirik yang sesuai dengan waktu saat ini
+            for (let i = 0; i < lyrics.length; i++) {
+                if (currentTime >= lyrics[i].start && currentTime <= lyrics[i].end) {
+                    if (currentLyricIndex !== i) {
+                        currentLyricIndex = i;
+                        lyricsContainer.innerHTML = `<p class="highlight">${lyrics[i].text}</p>`;
+                    }
+                    found = true;
+                    break;
+                }
+            }
+    
+            // Jika tidak ada lirik yang sesuai, hapus lirik
+            if (!found) {
+                lyricsContainer.innerHTML = "";
+            }
+        }
+    
+        // Event listener untuk memperbarui lirik saat lagu dimainkan
+        audioPlayer.addEventListener('timeupdate', displayLyrics);
+    </script>
+    
+
+</body>
+</html>
