@@ -79,10 +79,9 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
+                                <form id="waForm">
+                                    <div>
+                                        <input type="hidden" id="recipient-number" value="6282293955700">
                                     </div>
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Message:</label>
@@ -92,8 +91,21 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Send message</button>
+                                <button type="button" class="btn btn-primary" id="sendMessageButton">Send message</button>
                             </div>
+                            <script>
+                                document.getElementById('sendMessageButton').addEventListener('click', function() {
+                                    // Ambil data dari form
+                                    var number = document.getElementById('recipient-number').value;
+                                    var message = document.getElementById('message-text').value;
+                        
+                                    // Format nomor dan pesan ke dalam URL WhatsApp
+                                    var waUrl = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+                        
+                                    // Redirect ke WhatsApp
+                                    window.open(waUrl, '_blank');
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
