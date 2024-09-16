@@ -3,49 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Pemutar Lagu dengan Lirik</title>
+    <link rel="stylesheet" href="assets/style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+        #music-card {
+            position: relative;
             text-align: center;
-            padding: 20px;
         }
-        h1 {
-            color: #333;
+        #music-card img {
+            width: 100%;
+            height: auto;
         }
-        audio {
-            margin-top: 20px;
-        }
-        .lyrics {
-            margin-top: 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        p {
-            line-height: 1.6;
-            color: #555;
+        #lyrics-card {
+            position: relative;
+            text-align: center;
         }
         .highlight {
-            color: #d9534f;
             font-weight: bold;
+            color: #007bff;
+        }
+
+        .navbar {
+            margin: 0;
+            padding: 16px 32px;
+            border: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav {
+            margin-left: auto;
+            float: left;
+        }
+
+        .btn {
+            background: transparent;  /* fallback for old browsers */
+            border: 1;
+            border-width: 1.5px;
+            color: #007bff;
+            font-size: 14px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+        }
+
+        body {
+            text-align: center;
+            background-color: #101010;
+            font-family: MontserratRegular;
+        }
+        
+        .card {
+            background-color: rgb(0, 123, 255, 0.05);
+            color: white;
         }
     </style>
 </head>
 <body>
-
-    <h1>Pemutar Lagu dengan Lirik</h1>
-    <audio id="musicPlayer" controls>
-        <source src="melangkah.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
-    <div class="lyrics">
-        <h2>Lirik Lagu</h2>
-        <div id="lyrics"></div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <div class="nav">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                    </svg>&nbsp;&nbsp;Send Message
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                        <input type="text" class="form-control" id="recipient-name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Message:</label>
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Send message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container d-flex justify-content-center align-items-center min-vh-90">
+        <div class="card p-4 rounded-lg shadow-lg" style="width: 18rem;">
+            <!-- Album Cover -->
+            <img src="https://telegra.ph/file/2acfcad8d39e49d95addd.jpg" alt="Album Cover" class="card-img-top rounded-lg mb-3">
+            <div class="card-body">
+                <!-- Song Title -->
+                <h5 class="card-title" style="font-family: MontserratMedium;">Melangkah</h5>
+                <audio id="musicPlayer" controls class="w-100">
+                    <source src="melangkah.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <!-- Lyrics -->
+                <div class="mt-3" id="lyrics"></div>
+            </div>
+        </div>
     </div>
+
+    <footer class="mt-4 text-center">
+        <p style="color: white;">
+            Follow <a href="https://instagram.com/f.y_________" class="text-decoration-none">Instagram</a>
+        </p>
+    </footer>
 
     <script>
         const lyrics = [
@@ -61,38 +137,39 @@
             { start: 67, end: 74, text: "Bersama doa ibuku yang selalu menemani" },
             { start: 74, end: 82, text: "Tak pernah ku menyerah dengan keadaan" },
             { start: 82, end: 92, text: "Karena ku terus lakukan aktivitas tanpa batas" },
+            { start: 92, end: 95, text: "Ku masih berjalan walau dalam tekanan" },
+            { start: 95, end: 99, text: "Lika-liku Tuhan kuatkan, doa kupanjatkan" },
+            { start: 99, end: 102, text: "Syukur selalu pastikan, jatuh pasti bangkitkan" },
+            { start: 102, end: 106, text: "Melangkah, tak pernah aku menyerah" },
+            { start: 106, end: 113, text: "Kuatkan jiwa, bertahan hingga akhir" },
+            { start: 113, end: 118, text: "Tuhan, aku butuh kekuatan" },
+            { start: 118, end: 124, text: "Untuk menembus segala tantangan di depan" },
+            { start: 124, end: 131, text: "Melangkah, tak pernah aku menyerah" },
+            { start: 131, end: 138, text: "Kuatkan jiwa, bertahan hingga akhir" },
+            { start: 138, end: 145, text: "Tuhan, aku butuh kekuatan" },
+            { start: 145, end: 152, text: "Untuk menembus segala tantangan di depan" },
+            { start: 152, end: 159, text: "Ku masih berjalan walau dalam tekanan" },
+            { start: 159, end: 166, text: "Lika-liku Tuhan kuatkan, doa kupanjatkan" },
+            { start: 166, end: 171, text: "Syukur selalu pastikan, jatuh pasti bangkitkan" },
+            { start: 171, end: 178, text: "Melangkah, tak pernah aku menyerah" },
+            { start: 178, end: 185, text: "Kuatkan jiwa, bertahan hingga akhir" },
+            { start: 185, end: 191, text: "Tuhan, aku butuh kekuatan" },
+            { start: 191, end: 198, text: "Untuk menembus segala tantangan di depan" }
         ];
-    
+
         const lyricsContainer = document.getElementById('lyrics');
         const audioPlayer = document.getElementById('musicPlayer');
-        let currentLyricIndex = -1;
-    
-        function displayLyrics() {
-            let currentTime = audioPlayer.currentTime;
-            let found = false;
-    
-            // Cek lirik yang sesuai dengan waktu saat ini
-            for (let i = 0; i < lyrics.length; i++) {
-                if (currentTime >= lyrics[i].start && currentTime <= lyrics[i].end) {
-                    if (currentLyricIndex !== i) {
-                        currentLyricIndex = i;
-                        lyricsContainer.innerHTML = `<p class="highlight">${lyrics[i].text}</p>`;
-                    }
-                    found = true;
-                    break;
-                }
-            }
-    
-            // Jika tidak ada lirik yang sesuai, hapus lirik
-            if (!found) {
-                lyricsContainer.innerHTML = "";
-            }
-        }
-    
-        // Event listener untuk memperbarui lirik saat lagu dimainkan
-        audioPlayer.addEventListener('timeupdate', displayLyrics);
-    </script>
-    
 
+        audioPlayer.addEventListener('timeupdate', () => {
+            const currentTime = audioPlayer.currentTime;
+            let activeLyrics = lyrics.find(lyric => currentTime >= lyric.start && currentTime <= lyric.end);
+
+            if (activeLyrics) {
+                lyricsContainer.innerHTML = `<p class="highlight">${activeLyrics.text}</p>`;
+            } else {
+                lyricsContainer.innerHTML = '';
+            }
+        });
+    </script>
 </body>
 </html>
