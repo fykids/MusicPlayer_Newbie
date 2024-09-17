@@ -60,6 +60,45 @@
             background-color: rgb(0, 123, 255, 0.05);
             color: white;
         }
+
+        .card-title{
+            font-family: MontserratMedium;
+        }
+
+        .list-group-item {
+            background-color: #101010;
+            border: 0;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            padding: 2px 24px;
+        }
+
+        .row {
+            margin: 0;
+            padding: 8px 32px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content-row {
+                flex-direction: column;
+            }
+        }
+
+        ul {
+            padding: 4px 0;
+            
+        }
+
+        li {
+            float: right;
+            display: flex;
+            justify-content: space-between;
+            
+        }
     </style>
 </head>
 <body>
@@ -112,76 +151,148 @@
             </div>
         </div>
     </nav>
-    <div class="container d-flex justify-content-center align-items-center min-vh-90">
-        <div class="card p-4 rounded-lg shadow-lg" style="width: 18rem;">
-            <!-- Album Cover -->
-            <img src="https://telegra.ph/file/2acfcad8d39e49d95addd.jpg" alt="Album Cover" class="card-img-top rounded-lg mb-3">
-            <div class="card-body">
-                <!-- Song Title -->
-                <h5 class="card-title" style="font-family: MontserratMedium;">Melangkah</h5>
-                <audio id="musicPlayer" controls class="w-100">
-                    <source src="melangkah.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
-                <!-- Lyrics -->
-                <div class="mt-3" id="lyrics"></div>
+    
+    <div class="container">
+        <div class="row content-row d-flex justify-content-center align-items-center min-vh-90">
+            <!-- Music Section -->
+            <div class="col-md-6 mb-3">
+                <div class="card p-4 rounded-lg shadow-lg">
+                    <!-- Album Cover -->
+                    <img src="https://telegra.ph/file/2acfcad8d39e49d95addd.jpg" alt="Album Cover" class="card-img-top rounded-lg mb-3">
+                    <div class="card-body">
+                        <!-- Song Title -->
+                        <h5 class="card-title">Melangkah</h5>
+                        <audio id="musicPlayer" controls class="w-100">
+                            <source src="melangkah.mp3" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <!-- Lyrics -->
+                        <div class="mt-3" id="lyrics"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Other Songs Section -->
+            <div class="col-md-6 mb-3">
+                <div class="card p-4 rounded-lg shadow-lg">
+                    <div class="card-body" id="lainnya">
+                        <h5 class="card-title">Dengarkan Lainnya</h5>
+                        <div class="daftar">
+                            <ul id="song-list" class="list-group">
+                                <li class="list-group-item">
+                                    <div class="col">
+                                        <h6 class="card-title">Troublemaker</h6>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary" style="color: #000000;">
+                                            <a href="https://www.youtube.com/watch?v=sTuMtyFWF1E" style="text-decoration: none; color: #ffffff;">Dengarkan Sekarang!</a>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul id="song-list" class="list-group">
+                                <li class="list-group-item">
+                                    <div class="col">
+                                        <h6 class="card-title">Troublemaker</h6>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary" style="text-decoration: none; color: #ffffff;">
+                                            <a href="https://www.youtube.com/watch?v=sTuMtyFWF1E" style="text-decoration: none; color: #ffffff;">Dengarkan Sekarang!</a>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul id="song-list" class="list-group">
+                                <li class="list-group-item">
+                                    <div class="col">
+                                        <h6 class="card-title">Troublemaker</h6>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary" style="text-decoration: none; color: #ffffff;">
+                                            <a href="https://www.youtube.com/watch?v=sTuMtyFWF1E" style="text-decoration: none; color: #ffffff;">Dengarkan Sekarang!</a>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul id="song-list" class="list-group">
+                                <li class="list-group-item">
+                                    <div class="col">
+                                        <h6 class="card-title">Troublemaker</h6>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary" style="text-decoration: none; color: #ffffff;">
+                                            <a href="https://www.youtube.com/watch?v=sTuMtyFWF1E" style="text-decoration: none; color: #ffffff;">Dengarkan Sekarang!</a>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul id="song-list" class="list-group">
+                                <li class="list-group-item">
+                                    <div class="col">
+                                        <h6 class="card-title">Troublemaker</h6>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary" style="text-decoration: none; color: #ffffff;">
+                                            <a href="https://www.youtube.com/watch?v=sTuMtyFWF1E" style="text-decoration: none; color: #ffffff;">Dengarkan Sekarang!</a>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul id="song-list" class="list-group">
+                                <li class="list-group-item">
+                                    <div class="col">
+                                        <h6 class="card-title">Troublemaker</h6>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary" style="text-decoration: none; color: #ffffff;">
+                                            <a href="https://www.youtube.com/watch?v=sTuMtyFWF1E" style="text-decoration: none; color: #ffffff;">Dengarkan Sekarang!</a>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul id="song-list" class="list-group">
+                                <li class="list-group-item">
+                                    <div class="col">
+                                        <h6 class="card-title">Troublemaker</h6>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary" style="text-decoration: none; color: #ffffff;">
+                                            <a href="https://www.youtube.com/watch?v=sTuMtyFWF1E" style="text-decoration: none; color: #ffffff;">Dengarkan Sekarang!</a>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul id="song-list" class="list-group">
+                                <li class="list-group-item">
+                                    <div class="col">
+                                        <h6 class="card-title">Troublemaker</h6>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary" style="text-decoration: none; color: #ffffff;">
+                                            <a href="https://www.youtube.com/watch?v=sTuMtyFWF1E" style="text-decoration: none; color: #ffffff;">Dengarkan Sekarang!</a>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul id="song-list" class="list-group">
+                                <li class="list-group-item">
+                                    <div class="col">
+                                        <h6 class="card-title">Troublemaker</h6>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary">
+                                            <a href="https://www.youtube.com/watch?v=sTuMtyFWF1E" style="text-decoration: none; color: #ffffff;">Dengarkan Sekarang!</a>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+ 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer class="mt-4 text-center">
-        <p style="color: white;">
-            Follow <a href="https://instagram.com/f.y_________" class="text-decoration-none">Instagram</a>
-        </p>
-    </footer>
-
-    <script>
-        const lyrics = [
-            { start: 0, end: 13, text: "Intro" },
-            { start: 13, end: 21, text: "Kala rintangan masih kulawan" },
-            { start: 21, end: 28, text: "Dalam belenggu bagai menyelimuti hari" },
-            { start: 28, end: 34, text: "Dengarkan hati tak semanis mimpi" },
-            { start: 34, end: 41, text: "Harus berjuang, meski berat kulewati" },
-            { start: 41, end: 47, text: "Uuuu... Uuu..." },
-            { start: 47, end: 54, text: "Semangat datang menyelamatkanku dari" },
-            { start: 54, end: 61, text: "Kejamnya dunia yang menolakku untuk berdiri" },
-            { start: 61, end: 67, text: "Kuatkan langkahku, Tuhan, jalani hidup ini" },
-            { start: 67, end: 74, text: "Bersama doa ibuku yang selalu menemani" },
-            { start: 74, end: 82, text: "Tak pernah ku menyerah dengan keadaan" },
-            { start: 82, end: 92, text: "Karena ku terus lakukan aktivitas tanpa batas" },
-            { start: 92, end: 95, text: "Ku masih berjalan walau dalam tekanan" },
-            { start: 95, end: 99, text: "Lika-liku Tuhan kuatkan, doa kupanjatkan" },
-            { start: 99, end: 102, text: "Syukur selalu pastikan, jatuh pasti bangkitkan" },
-            { start: 102, end: 106, text: "Melangkah, tak pernah aku menyerah" },
-            { start: 106, end: 113, text: "Kuatkan jiwa, bertahan hingga akhir" },
-            { start: 113, end: 118, text: "Tuhan, aku butuh kekuatan" },
-            { start: 118, end: 124, text: "Untuk menembus segala tantangan di depan" },
-            { start: 124, end: 131, text: "Melangkah, tak pernah aku menyerah" },
-            { start: 131, end: 138, text: "Kuatkan jiwa, bertahan hingga akhir" },
-            { start: 138, end: 145, text: "Tuhan, aku butuh kekuatan" },
-            { start: 145, end: 152, text: "Untuk menembus segala tantangan di depan" },
-            { start: 152, end: 159, text: "Ku masih berjalan walau dalam tekanan" },
-            { start: 159, end: 166, text: "Lika-liku Tuhan kuatkan, doa kupanjatkan" },
-            { start: 166, end: 171, text: "Syukur selalu pastikan, jatuh pasti bangkitkan" },
-            { start: 171, end: 178, text: "Melangkah, tak pernah aku menyerah" },
-            { start: 178, end: 185, text: "Kuatkan jiwa, bertahan hingga akhir" },
-            { start: 185, end: 191, text: "Tuhan, aku butuh kekuatan" },
-            { start: 191, end: 198, text: "Untuk menembus segala tantangan di depan" }
-        ];
-
-        const lyricsContainer = document.getElementById('lyrics');
-        const audioPlayer = document.getElementById('musicPlayer');
-
-        audioPlayer.addEventListener('timeupdate', () => {
-            const currentTime = audioPlayer.currentTime;
-            let activeLyrics = lyrics.find(lyric => currentTime >= lyric.start && currentTime <= lyric.end);
-
-            if (activeLyrics) {
-                lyricsContainer.innerHTML = `<p class="highlight">${activeLyrics.text}</p>`;
-            } else {
-                lyricsContainer.innerHTML = '';
-            }
-        });
-    </script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
